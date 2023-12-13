@@ -171,7 +171,7 @@ func getLdflags(info repository.Info) string {
 		}
 
 		if err := tmpl.Execute(tmplOutput, info); err != nil {
-			fatal(fmt.Errorf("Failed to execute ldflags text/template: %s", err))
+			fatal(fmt.Errorf("Failed to execute ldflags text/template: %w", err))
 		}
 
 		ldflags = append(ldflags, strings.Split(tmplOutput.String(), "\n")...)
