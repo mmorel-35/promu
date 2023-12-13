@@ -35,12 +35,12 @@ var (
 func runChecksum(path string) {
 	checksums, err := calculateSHA256s(path)
 	if err != nil {
-		fatal(fmt.Errorf("Failed to calculate checksums: %s", err))
+		fatal(fmt.Errorf("Failed to calculate checksums: %w", err))
 	}
 
 	file, err := os.Create(filepath.Join(path, checksumsFilename))
 	if err != nil {
-		fatal(fmt.Errorf("Failed to create checksums file: %s", err))
+		fatal(fmt.Errorf("Failed to create checksums file: %w", err))
 	}
 	defer file.Close()
 	for _, c := range checksums {
