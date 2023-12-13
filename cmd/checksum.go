@@ -45,7 +45,7 @@ func runChecksum(path string) {
 	defer file.Close()
 	for _, c := range checksums {
 		if _, err := fmt.Fprintf(file, "%x  %s\n", c.checksum, c.filename); err != nil {
-			fatal(fmt.Errorf("Failed to write to checksums file: %s", err))
+			fatal(fmt.Errorf("Failed to write to checksums file: %w", err))
 		}
 	}
 }
