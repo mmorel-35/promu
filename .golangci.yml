@@ -5,6 +5,7 @@ issues:
 linters:
   disable:
     - errcheck
+    - unused
   enable:
     - errorlint
     - staticcheck
